@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getCastingList, getNextUrl, getPerviousUrl } from "./action";
+import Buttons from "./Buttons";
 
 function App() {
   const list = useSelector(state => state.list);
@@ -55,27 +56,12 @@ function App() {
         ) : (
           ""
         )}
-        {previousUrl !== null ? (
-          <button
-            className="btn-primary px-md-5 mr-5 btn-lg "
-            onClick={() => getList(previousUrl)}
-          >
-            previous
-          </button>
-        ) : (
-          ""
-        )}
-        {nextUrl !== null ? (
-          <button
-            className="btn-primary px-md-5 mr-5 btn-lg "
-            onClick={() => getList(nextUrl)}
-          >
-            {" "}
-            {list.length === 0 ? "Load" : "Next"}{" "}
-          </button>
-        ) : (
-          ""
-        )}
+        <Buttons
+          pageHandler={getList}
+          getNextUrl={nextUrl}
+          getPerviousUrl={previousUrl}
+          listLength={list.length}
+        ></Buttons>
       </div>
     </div>
   );

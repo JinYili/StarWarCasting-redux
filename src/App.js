@@ -34,26 +34,16 @@ function App() {
       });
     return;
   }
-  const headerStyle = {
-    margin: "40px",
-    border: "5px solid pink",
-    color: "green"
-  };
-  const listStyleType = {
-    listStyleType: "none",
-    margin: "10",
-    width: "97%"
-  };
 
   return (
     <div className="App">
       <div>
-        <h1 style={headerStyle}>STAR WAR CASTING by Redux</h1>
+        <h1 className="headerStyle">STAR WAR CASTING by Redux</h1>
         {list !== undefined ? (
-          <ul style={listStyleType}>
+          <ul className="listStyleType list-group list-group-flush">
             {list.map(({ name, height, mass, birth_year }) => (
               <li
-                className="border border-success rounded"
+                className="border border-success rounded list-group-item"
                 key={name + birth_year}
               >
                 <p>
@@ -67,7 +57,7 @@ function App() {
         )}
         {previousUrl !== null ? (
           <button
-            className="btn-primary px-md-5 mr-3 btn-lg "
+            className="btn-primary px-md-5 mr-5 btn-lg "
             onClick={() => getList(previousUrl)}
           >
             previous
@@ -77,7 +67,7 @@ function App() {
         )}
         {nextUrl !== null ? (
           <button
-            className="btn-primary px-md-5 btn-lg "
+            className="btn-primary px-md-5 mr-5 btn-lg "
             onClick={() => getList(nextUrl)}
           >
             {" "}
